@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f8f9fb;
+  color:#111;
+}
+
+/* LOADING */
+#loading{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:20px;
+  font-weight:600;
+  z-index:999;
+}
+
+/* MAIN */
+.container{
+  padding:20px;
+  padding-bottom:80px;
+  opacity:0;
+  transition:0.5s;
+}
+
+.show{opacity:1;}
+
+.page{display:none;}
+.active{display:block;}
+
+/* CARD */
+.card{
+  background:white;
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.title{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+/* NAV */
+.nav{
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  background:white;
+  border-radius:20px;
+  display:flex;
+  justify-content:space-around;
+  padding:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.nav button{
+  border:none;
+  background:none;
+  font-size:20px;
+  opacity:0.5;
+  transition:0.3s;
+}
+
+.nav button.active{
+  opacity:1;
+  transform:scale(1.2);
+}
+
+/* CALENDAR */
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.day{
+  padding:10px;
+  border-radius:12px;
+  background:#f1f3f5;
+  text-align:center;
+  font-size:13px;
+}
+
+.special{
+  background:#ff4d6d;
+  color:white;
+}
+
+/* BADGE */
+.badge{
+  padding:12px;
+  border-radius:12px;
+  background:#f1f3f5;
+  margin-bottom:8px;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+  object-fit:cover;
+}
+</style>
+</head>
+
+<body>
+
+<div id="loading">Loading Our Story ❤️</div>
+
+<div class="container" id="main">
+
+<!-- LOVE -->
+<div id="love" class="page active">
+  <div class="card">
+    <div class="title">Our Story ❤️</div>
+
+    <p>Semua dimulai dari 7 Januari 2026, saat aku dan Lia kenalan di Free Fire. Awalnya cuma chat biasa.</p><br>
+
+    <p>Lama-lama kita jadi sering ngobrol, bercanda, ketawa, dan saling curhat.</p><br>
+
+    <p style="color:#ff4d6d;font-weight:600;">💖 Anniversary 50 Hari (26 Februari 2026)</p><br>
+
+    <p>Hubungan kita makin dekat, penuh tawa dan cerita.</p><br>
+
+    <p style="color:#ff006e;font-weight:600;">💞 26 April 2026</p><br>
+
+    <p>Aku menyatakan perasaan, dan Lia juga mencintaiku. Akhirnya kita bersama ❤️</p>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div id="calendar" class="page">
+  <div class="card">
+    <div class="title">Kalender Kita</div>
+
+    <div class="calendar">
+      <div class="day special">7 Jan</div>
+      <div class="day">...</div>
+      <div class="day special">26 Feb</div>
+      <div class="day">...</div>
+      <div class="day special">26 Apr</div>
+    </div>
+  </div>
+</div>
+
+<!-- TROPHY -->
+<div id="trophy" class="page">
+  <div class="card">
+    <div class="title">Pencapaian</div>
+
+    <div class="badge">Awal Perkenalan</div>
+    <div class="badge">Makin Dekat</div>
+    <div class="badge">Confess Pertama</div>
+    <div class="badge">Confess Diterima</div>
+
+  </div>
+</div>
+
+<!-- PHOTO -->
+<div id="photo" class="page">
+  <div class="card">
+    <div class="title">Foto Lia</div>
+
+    <div class="gallery">
+      <!-- GANTI LINK -->
+      <img src="https://files.catbox.moe/5t6n8f.jpg">
+      <img src="https://files.catbox.moe/zvu19i.jpg">
+      <img src="https://files.catbox.moe/80v0s4.jpg">
+      <img src="https://files.catbox.moe/h2h2e3.jpg">
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button onclick="nav('love',this)" class="active">❤️</button>
+  <button onclick="nav('calendar',this)">📅</button>
+  <button onclick="nav('trophy',this)">🏆</button>
+  <button onclick="nav('photo',this)">📸</button>
+</div>
+
+<script>
+function nav(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* LOADING 3 DETIK */
+setTimeout(()=>{
+  document.getElementById('loading').style.display='none';
+  document.getElementById('main').classList.add('show');
+},3000);
+</script>
+
+</body>
+</html>
